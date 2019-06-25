@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<style type="text/css">
+		#container {
+			width: 600px;
+			border: 1px solid black;
+			border-radius: 25px;
+			margin: auto;
+			padding: 20px;
+		}
+		label, select, input {
+			width: 200px;
+			display: inline-block;
+			border-radius: 5px;
+		}
+		#result {
+			border: 1px solid black;
+			border-radius: 5px;
+		}
+		tr, td {
+			width: 200px;
+			margin: auto;
+			border: 1px solid black;
+			border-radius: 5px;
+			padding: 5px;
+		}
+		.title {
+			font-size: 18px;
+			font-style: italic;
+		}	
+	</style>
+	<script type="text/javascript">
+		$(start)
+		function start() {
+			$('#but').on('click', send)
+		}
+		function send() {
+			var na = $('#txt').val()
+			var sur = $('#txt2').val()
+
+			if (na.trim()=='' || sur.trim()=='') {
+				alert('Insert name and surname')
+				return
+			}
+
+			var lang = $('#courses').val()
+			if (lang=='000') {
+				alert('Select a course')
+				return
+			}
+			
+			$('#result').append("<tr><td>"+na+"</td><td>"+sur+"</td><td>"+lang+"</td></tr><br>")
+		}
+	</script>
+</head>
+<body>
+	<div id="container">
+	<form id="form">
+		<label>Name</label>
+		<input id="txt" type="text" name="name">
+		<br><br>
+		<label>Surname</label>
+		<input id="txt2" type="text" name="surname">
+		<br><br>
+		<label>Course</label>
+		<select id='courses'>
+			<option value='000'>Select a course</option>		
+			<option value='Javascript'>Javascript</option>
+			<option value='PHP'>PHP</option>
+			<option value='JAVA'>JAVA</option>
+			<option value='C++'>C++</option>
+			<option value='Python'>Python</option>				
+		</select>
+		<br><br>
+		<label hidden="true"></label>
+		<input id="but" type="button" name="send" value="Send">
+		<br><br>
+		<hr>
+		<table id="result">
+			<tr>
+				<td class="title">Name</td>
+				<td class="title">Surname</td>
+				<td class="title">Course</td>
+			</tr>
+			<br>
+		</table> 		
+ </form> 
+</div>
+</body>
+</html>
